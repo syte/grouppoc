@@ -11,7 +11,7 @@ updating user state doesn't have to update user groups. One big downside to this
 
 ## How to run
 `docker-compose up` from the root of the application to see it in action.
-This will spin up a service that produces group updates, and another one that consumes the group updates, processes them, and updates the user groups in the database. Obviously this a mock example. Right now the group calculator processes a group at a time, but it's entirely realistic to break up each group update into multiple database level requests.
+This will spin up a service that produces group updates, and another one that consumes the group updates, processes them, and updates the user groups in the database. Obviously this a mock example. Right now the group calculator processes a group at a time, but it's entirely realistic to break up each group update into multiple database level requests. By default it'll populate the database with some mock data so we can run the application.
 
 ## Notes 
 The code is to highlight the diagram I had sent in. It's a POC so closing connections is missing since it won't be going into production. Mainly just wanted to highlight what I had suggested in my diagram.
