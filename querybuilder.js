@@ -13,8 +13,6 @@ function applyRule(qb, rule) {
     qb[method](subQb => {
       rule.rules.forEach(r => applyRule(subQb, r));
     });
-
-    console.log(qb.toQuery());
   } else {
     const fn = opFns[rule.op];
     if (!fn) throw new Error(`Unsupported operator: ${rule.op}`);
