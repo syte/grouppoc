@@ -1,4 +1,3 @@
-// utils.js
 const amqp = require('amqplib');
 
 const RABBITMQ_URL = 'amqp://par:par@rabbitmq:5672';
