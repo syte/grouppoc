@@ -8,6 +8,9 @@ CREATE TABLE IF NOT EXISTS users (
   country TEXT
 );
 
+CREATE INDEX IF NOT EXISTS idx_users_age ON users(age);
+CREATE INDEX IF NOT EXISTS idx_users_country ON users(country);
+
 CREATE TABLE IF NOT EXISTS groups (
   id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
   name TEXT NOT NULL UNIQUE
