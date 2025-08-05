@@ -3,7 +3,7 @@
 ## Introduction
 A demo of how to update user groups out of band. Whenever an admin changes the criteria for groups and submits it, we don't want to process the update in real time because
 that would provide a poor experience given enough data. This application consumes group updates via rabbitmq and processes them one by one and updates the db. By having
-this out-of-band, you can keep user experience just as quick. Did this relatively quickly and made us of AI but wanted to POC the design.
+this out-of-band, you can keep user experience just as quick. Did this relatively quickly and made us of AI but wanted to POC the design. Also it would be good to store the rules in the db as a json blob so admins can update them.
 
 ## Why this approach?
 So ideally, i'd do benchmarks in real life to quantify the slowness of the application. Sometimes we could get by with a different solution. A few of the other approaches I thought about was making sure indexing was done on the update query in the inital solution. Also, instead of storing groups in the database, since it's computed, we can just compute groups within the application code. Now
