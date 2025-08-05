@@ -1,0 +1,35 @@
+services:
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: par 
+      RABBITMQ_DEFAULT_PASS: par
+
+  postgres:
+    image: postgres:15
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: par
+      POSTGRES_PASSWORD: par
+      POSTGRES_DB: par
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./db-setup.sql:/docker-entrypoint-initdb.d/db-setup.sql
+
+  group-poc:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - postgres
+      - rabbitmq
+    environment:
+      DATABASE_URL: postgres://par:par@postgres:5432/par
+      RABBITMQ_URL: amqp://par:par@rabbitmq:5672/ 
+volumes:
+  pgdata:
+

@@ -1,0 +1,14 @@
+{
+  "name": "group-poc",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "amqplib": "^0.10.8",
+    "knex": "^3.1.0",
+    "pg": "^8.16.3",
+    "uuid": "^11.1.0"
+  }
+}
